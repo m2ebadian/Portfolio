@@ -1,10 +1,12 @@
 @import "tailwindcss";
 
-/* Lets a .dark class on <html> trigger dark mode (needed for the toggle later) */
+/* Lets the .dark class on <html> (set by the theme script/toggle) trigger dark mode */
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* Light mode values */
 :root {
+  color-scheme: light;   /* new: browser UI (scrollbars, form controls) matches light theme */
+
   --background: #f8fafc; /* slate-50 */
   --foreground: #0f172a; /* slate-900 */
   --muted: #475569;      /* slate-600 */
@@ -15,6 +17,8 @@
 
 /* Dark mode values */
 .dark {
+  color-scheme: dark;    /* new: browser UI matches dark theme */
+
   --background: #020617; /* slate-950 */
   --foreground: #f1f5f9; /* slate-100 */
   --muted: #94a3b8;      /* slate-400 */
