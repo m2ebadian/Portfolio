@@ -1,0 +1,63 @@
+.tb-card {
+  border-color: var(--border);
+  background: linear-gradient(180deg, color-mix(in oklab, var(--foreground) 4%, var(--surface)), var(--surface));
+}
+
+.tb-card:hover,
+.tb-card.tb-selected {
+  border-color: color-mix(in oklab, var(--b) 70%, transparent);
+  box-shadow: 0 18px 40px -22px color-mix(in oklab, var(--b) 80%, transparent);
+  background: linear-gradient(180deg, color-mix(in oklab, var(--b) 12%, var(--surface)), var(--surface));
+}
+
+.tb-chip {
+  border-color: color-mix(in oklab, var(--b) 35%, var(--border));
+}
+
+.tb-chip:hover {
+  border-color: var(--b);
+  background: color-mix(in oklab, var(--b) 10%, transparent);
+}
+
+@keyframes tb-scroll {
+  to { transform: translateX(-50%); }
+}
+
+.tb-track {
+  animation: tb-scroll 60s linear infinite;
+}
+
+.tb-row:hover .tb-track,
+.tb-row:focus-within .tb-track,
+.tb-root:not([data-active='true']) .tb-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tb-track {
+    animation: none;
+    width: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .tb-track > [aria-hidden='true'] {
+    display: none;
+  }
+
+  .tb-row {
+    mask-image: none;
+  }
+}
+
+@keyframes tb-flash {
+  0% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--accent) 70%, transparent); }
+  40% { box-shadow: 0 0 0 6px color-mix(in oklab, var(--accent) 45%, transparent); }
+  100% { box-shadow: 0 0 0 18px transparent; }
+}
+
+.tb-flash {
+  border-radius: 1rem;
+  animation: tb-flash 1.2s ease-out 2;
+}

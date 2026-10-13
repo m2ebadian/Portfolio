@@ -1,24 +1,14 @@
-// src/components/OrgLogo.tsx
-// A logo tile that links to the organization's website and shows a preview card on hover/focus.
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import type { Org } from '../types/project'
 import { ease } from '../lib/motion'
 
-interface OrgLogoProps {
-  org: Org
-}
-
-function OrgLogo({ org }: OrgLogoProps) {
+function OrgLogo({ org }: { org: Org }) {
   const [open, setOpen] = useState(false)
   const host = new URL(org.url).hostname.replace(/^www\./, '')
 
   return (
-    <div
-      className="relative"
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
-    >
+    <div className="relative" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
       <a
         href={org.url}
         target="_blank"
@@ -31,7 +21,6 @@ function OrgLogo({ org }: OrgLogoProps) {
         <img src={org.logo} alt="" className="h-8 w-auto max-w-[12rem] object-contain @xl:h-10 @xl:max-w-[14rem]" />
       </a>
 
-      {/* Preview card */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -42,11 +31,7 @@ function OrgLogo({ org }: OrgLogoProps) {
             className="pointer-events-none absolute top-full right-0 z-30 mt-3 w-72 max-w-[80vw] origin-top-right overflow-hidden rounded-xl border border-border bg-surface shadow-2xl"
           >
             {org.preview ? (
-              <img
-                src={org.preview}
-                alt=""
-                className="aspect-video w-full border-b border-border object-cover object-top"
-              />
+              <img src={org.preview} alt="" className="aspect-video w-full border-b border-border object-cover object-top" />
             ) : (
               <div className="flex aspect-video w-full items-center justify-center border-b border-border bg-white p-8">
                 <img src={org.logo} alt="" className="max-h-full max-w-full object-contain" />

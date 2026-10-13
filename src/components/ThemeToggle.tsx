@@ -2,17 +2,17 @@ import { useState } from 'react'
 import { FiSun, FiMoon } from 'react-icons/fi'
 
 function ThemeToggle() {
-  // Read the class the index.html script already set, so React starts in sync
-  const [isDark, setIsDark] = useState(() =>
-    document.documentElement.classList.contains('dark')
-  )
+  // index.html sets the class before React loads
+  const [isDark, setIsDark] = useState(() => document.documentElement.classList.contains('dark'))
 
   function toggle() {
     const next = !isDark
     document.documentElement.classList.toggle('dark', next)
     try {
       localStorage.setItem('theme', next ? 'dark' : 'light')
-    } catch {}
+    } catch {
+      // storage can be blocked in private browsing
+    }
     setIsDark(next)
   }
 

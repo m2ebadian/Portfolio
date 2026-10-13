@@ -1,4 +1,3 @@
-
 export type IconName = 'github' | 'linkedin' | 'envelope'
 
 export interface SocialLink {
@@ -7,10 +6,12 @@ export interface SocialLink {
   icon?: IconName
 }
 
-
 export interface Profile {
   name: string
   headline: string
   tagline: string
+  contact: string
+  resume: string
+  location: string
   links: SocialLink[]
 }

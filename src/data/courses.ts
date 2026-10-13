@@ -1,6 +1,3 @@
-// src/data/courses.ts
-// Descriptions are condensed from the MSU course catalog.
-// Courses connect in the graph when they share a topic or one is a prerequisite of the other.
 import type { Cluster, Course } from '../types/course'
 
 export const clusters: Cluster[] = [
@@ -10,7 +7,7 @@ export const clusters: Cluster[] = [
 ]
 
 export const courses: Course[] = [
-  // ---------- Machine Learning & AI ----------
+  // Machine Learning & AI
   {
     code: 'CSE 404',
     name: 'Introduction to Machine Learning',
@@ -44,7 +41,7 @@ export const courses: Course[] = [
     inProgress: true,
   },
 
-  // ---------- Data Science & Statistics ----------
+  // Data Science & Statistics
   {
     code: 'CMSE 202',
     name: 'Computational Modeling Tools and Techniques',
@@ -79,7 +76,7 @@ export const courses: Course[] = [
     prereqs: ['CSE 380', 'CMSE 381'],
   },
 
-  // ---------- Software & Systems ----------
+  // Software & Systems
   {
     code: 'CSE 320',
     name: 'Computer Organization and Architecture',
@@ -107,7 +104,7 @@ export const courses: Course[] = [
   },
   {
     code: 'CSE 435',
-    name: 'Software Engineering', // TODO: confirm the title on your transcript (renamed in FS26)
+    name: 'Software Engineering',
     cluster: 'software',
     description: 'Software engineering methods for reliable, reusable, and dependable software.',
     topics: ['Software Engineering', 'Software Design'],

@@ -1,9 +1,6 @@
-// src/components/StatusHeading.tsx
-// Small mono heading used inside sections, with an optional pulsing "live" dot.
-
 interface StatusHeadingProps {
   children: string
-  live?: boolean // show the pulsing dot (for ongoing work)
+  live?: boolean
 }
 
 function StatusHeading({ children, live = false }: StatusHeadingProps) {

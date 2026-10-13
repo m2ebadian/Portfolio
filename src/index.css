@@ -1,33 +1,27 @@
 @import "tailwindcss";
 
-/* Lets the .dark class on <html> (set by the theme script/toggle) trigger dark mode */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Light mode values */
 :root {
-  color-scheme: light;   /* new: browser UI (scrollbars, form controls) matches light theme */
-
-  --background: #f8fafc; /* slate-50 */
-  --foreground: #0f172a; /* slate-900 */
-  --muted: #475569;      /* slate-600 */
-  --surface: #ffffff;    /* white */
-  --border: #e2e8f0;     /* slate-200 */
-  --accent: #0f766e;     /* teal-700 */
+  color-scheme: light;
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --muted: #475569;
+  --surface: #ffffff;
+  --border: #e2e8f0;
+  --accent: #0f766e;
 }
 
-/* Dark mode values */
 .dark {
-  color-scheme: dark;    /* new: browser UI matches dark theme */
-
-  --background: #020617; /* slate-950 */
-  --foreground: #f1f5f9; /* slate-100 */
-  --muted: #94a3b8;      /* slate-400 */
-  --surface: #0f172a;    /* slate-900 */
-  --border: #1e293b;     /* slate-800 */
-  --accent: #2dd4bf;     /* teal-400 */
+  color-scheme: dark;
+  --background: #020617;
+  --foreground: #f1f5f9;
+  --muted: #94a3b8;
+  --surface: #0f172a;
+  --border: #1e293b;
+  --accent: #2dd4bf;
 }
 
-/* Turns the variables above into Tailwind classes: bg-background, text-accent, etc. */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -40,7 +34,6 @@
   --font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
 }
 
-/* Apply the theme to the whole page */
 @layer base {
   body {
     @apply bg-background text-foreground;

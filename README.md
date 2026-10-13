@@ -1,32 +1,44 @@
-# React + TypeScript + Vite
+# Mehrshad Bagherebadian — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Personal portfolio site built with React, TypeScript, and Vite.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **React 19 + TypeScript**, bundled with **Vite**
+- **Tailwind CSS v4** for styling (theme tokens live in `src/index.css`)
+- **Motion** for animation and **Lenis** for smooth scrolling
+- **React Three Fiber / drei** for the 3D course graph (loaded lazily)
 
-## React Compiler
+## Getting started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+npm run dev       # local dev server
+npm run build     # type-check and build to dist/
+npm run preview   # serve the production build
+npm run lint
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Project layout
+
+```
+src/
+  data/        site content (profile, about, courses, projects, experience, beyond)
+  types/       TypeScript types for the data
+  sections/    one component per page section
+  components/  shared UI (cards, timeline, navbar, course graph, ...)
+  lib/         small helpers (dates, motion presets, scrolling)
+public/        images, logos, PDFs, icons
+```
+
+## Editing content
+
+Almost everything on the page comes from `src/data/`:
+
+- **Projects:** `projects.ts`. Order in the file is the order on the page. `category` decides the section (`research`, `project`, `side`, `course`). Links can be written inline as `[text](https://...)`.
+- **Courses:** `courses.ts`. Courses that share a topic or a prerequisite are connected in the graph.
+- **Tech belt and stack:** `about.ts`. Belt icons live in `public/tech/`.
+- **Beyond the Data:** `beyond.ts`. Food photos live in `public/beyond/`.
+- **Résumé:** drop the PDF at `public/Mehrshad-Bagherebadian-Resume.pdf`.
+
+Dates are written as `YYYY-MM`; leave out `end` for anything ongoing.

@@ -1,6 +1,3 @@
-// src/data/orgs.ts
-// Every organization logo used on the site, defined once.
-// To add a website preview, save a screenshot in public/previews/ and set `preview`.
 import type { Org } from '../types/project'
 
 export const orgs = {

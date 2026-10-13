@@ -1,16 +1,15 @@
-// src/sections/Research.tsx
-// Research cards sit on the RIGHT side of the center line.
 import Section from '../components/Section'
 import ProjectCard from '../components/ProjectCard'
 import StatusHeading from '../components/StatusHeading'
 import Timeline, { type TimelineItem } from '../components/Timeline'
 import { projects } from '../data/projects'
 
-function Research() {
-  // Cards appear in the same order as in data/projects.ts
-  const research = projects.filter((p) => p.category === 'research')
+const research = projects.filter((p) => p.category === 'research')
 
+function Research() {
   if (research.length === 0) return null
+
+  const hasOngoing = research.some((p) => p.status === 'in-progress')
 
   const items: TimelineItem[] = research.map((p) => ({
     key: p.slug,
@@ -19,15 +18,11 @@ function Research() {
     content: <ProjectCard project={p} />,
   }))
 
-  const hasOngoing = research.some((p) => p.status === 'in-progress')
-
   return (
-    <Section id="research" index="03" title="Research" wide>
+    <Section id="research" index="04" title="Research" wide>
       <Timeline
         items={items}
-        rightHeading={
-          <StatusHeading live={hasOngoing}>{hasOngoing ? 'Ongoing research' : 'Research'}</StatusHeading>
-        }
+        rightHeading={<StatusHeading live={hasOngoing}>{hasOngoing ? 'Ongoing research' : 'Research'}</StatusHeading>}
       />
     </Section>
   )

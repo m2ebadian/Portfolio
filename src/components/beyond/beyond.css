@@ -1,0 +1,143 @@
+.bt-tile {
+  background: color-mix(in oklab, var(--c) 6%, var(--surface));
+  border-color: color-mix(in oklab, var(--c) 28%, var(--border));
+}
+
+.bt-tile:hover,
+.bt-tile:focus-visible {
+  border-color: color-mix(in oklab, var(--c) 75%, transparent);
+  box-shadow: 0 24px 60px -30px color-mix(in oklab, var(--c) 70%, transparent);
+}
+
+.bt-iran {
+  --ir-green: #1f8f3a;
+  --ir-red: #c80000;
+}
+
+.dark .bt-iran {
+  --ir-green: #3fcf68;
+  --ir-red: #ff4d4d;
+}
+
+.bt-tile.bt-iran-bg {
+  background: linear-gradient(
+    160deg,
+    color-mix(in oklab, #239f40 20%, var(--surface)) 0%,
+    color-mix(in oklab, #ffffff 4%, var(--surface)) 50%,
+    color-mix(in oklab, #da0000 18%, var(--surface)) 100%
+  );
+}
+
+.bt-spot {
+  background: radial-gradient(
+    380px circle at var(--mx, 50%) var(--my, 50%),
+    color-mix(in oklab, var(--c) 22%, transparent),
+    transparent 70%
+  );
+}
+
+.bt-ink {
+  color: color-mix(in oklab, var(--c) 70%, var(--foreground));
+}
+
+.bt-wash {
+  background: color-mix(in oklab, var(--c) 14%, transparent);
+}
+
+.bt-chip {
+  border: 1px solid color-mix(in oklab, var(--c) 30%, var(--border));
+  background: color-mix(in oklab, var(--c) 8%, transparent);
+}
+
+@keyframes bt-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes bt-eq {
+  0%, 100% { transform: scaleY(0.25); }
+  50% { transform: scaleY(1); }
+}
+
+@keyframes bt-marquee {
+  to { transform: translateX(-50%); }
+}
+
+@keyframes bt-steam {
+  0% { transform: translateY(6px) scaleX(1); opacity: 0; }
+  30% { opacity: 0.8; }
+  100% { transform: translateY(-26px) scaleX(1.4); opacity: 0; }
+}
+
+@keyframes bt-bounce {
+  0%, 100% {
+    transform: translateY(0) scale(1.08, 0.9);
+    animation-timing-function: cubic-bezier(0.3, 0, 0.7, 0.4);
+  }
+  10% { transform: translateY(-4px) scale(0.96, 1.04); }
+  50% {
+    transform: translateY(-46px) scale(1);
+    animation-timing-function: cubic-bezier(0.3, 0.6, 0.7, 1);
+  }
+}
+
+@keyframes bt-shadow {
+  0%, 100% { transform: scaleX(1); opacity: 0.45; }
+  50% { transform: scaleX(0.45); opacity: 0.15; }
+}
+
+@keyframes bt-pong {
+  to { offset-distance: 100%; }
+}
+
+@keyframes bt-wave {
+  0%, 100% { transform: translateY(calc(var(--a) * -1)); }
+  50% { transform: translateY(var(--a)); }
+}
+
+@keyframes bt-shade {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 0.16; }
+}
+
+.bt-spin { animation: bt-spin 4s linear infinite; }
+.bt-spin-slow { animation: bt-spin 90s linear infinite; }
+.bt-spin-rev { animation: bt-spin 14s linear infinite reverse; }
+.bt-marquee { animation: bt-marquee 18s linear infinite; }
+.bt-bounce { animation: bt-bounce 1.1s infinite; }
+.bt-shadow { animation: bt-shadow 1.1s ease-in-out infinite; }
+
+.bt-eq {
+  animation: bt-eq 1s ease-in-out infinite;
+  transform-origin: bottom;
+}
+
+.bt-steam {
+  animation: bt-steam 2.6s ease-out infinite;
+  transform-box: fill-box;
+  transform-origin: center bottom;
+}
+
+/* wave and shade share a duration so the shading lines up with the folds */
+.bt-wave { animation: bt-wave 2.2s ease-in-out infinite; }
+.bt-shade { animation: bt-shade 2.2s ease-in-out infinite; }
+
+.bt-pong {
+  offset-path: path('M 4 40 Q 60 -18 116 40');
+  animation: bt-pong 0.9s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
+}
+
+.bt-gallery:hover .bt-marquee,
+.bt-gallery:focus-within .bt-marquee {
+  animation-play-state: paused;
+}
+
+.bt-root:not([data-active='true']) * {
+  animation-play-state: paused !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bt-root * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

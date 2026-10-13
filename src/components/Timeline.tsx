@@ -1,7 +1,3 @@
-// src/components/Timeline.tsx
-// Left/right layout with a center line and a dot per item. Each item sits on the left
-// or right of the line on desktop; on phones everything stacks to the right of a line on the left.
-// Used by Research (right side) and Projects (left side); generic so other sections can reuse it.
 import type { ReactNode } from 'react'
 import { motion } from 'motion/react'
 import { ease } from '../lib/motion'
@@ -9,8 +5,8 @@ import { ease } from '../lib/motion'
 export interface TimelineItem {
   key: string
   side: 'left' | 'right'
-  live?: boolean   // pulsing dot for ongoing work
-  label?: string   // small tag shown above the card on phones (where sides don't exist)
+  live?: boolean
+  label?: string
   content: ReactNode
 }
 
@@ -22,7 +18,7 @@ interface TimelineProps {
 
 function Dot({ live }: { live?: boolean }) {
   return (
-    <span className="relative flex h-3 w-3">
+    <span data-timeline-dot className="relative flex h-3 w-3">
       {live && (
         <span className="absolute inline-flex h-full w-full rounded-full bg-accent opacity-60 motion-safe:animate-ping" />
       )}
@@ -33,11 +29,9 @@ function Dot({ live }: { live?: boolean }) {
 
 function Timeline({ items, leftHeading, rightHeading }: TimelineProps) {
   return (
-    <div className="relative">
-      {/* The line: left edge on phones, center on desktop */}
+    <div data-timeline className="relative">
       <div className="absolute top-0 bottom-0 left-1.5 w-px bg-border md:left-1/2 md:-translate-x-1/2" />
 
-      {/* Column headings (desktop only) */}
       {(leftHeading || rightHeading) && (
         <div className="mb-10 hidden grid-cols-[minmax(0,1fr)_3rem_minmax(0,1fr)] md:grid">
           <div className="flex justify-end">{leftHeading}</div>
@@ -55,12 +49,10 @@ function Timeline({ items, leftHeading, rightHeading }: TimelineProps) {
               key={item.key}
               className="relative grid grid-cols-[1.5rem_minmax(0,1fr)] gap-x-4 md:grid-cols-[minmax(0,1fr)_3rem_minmax(0,1fr)] md:gap-x-0"
             >
-              {/* Dot on the line */}
               <div className="flex justify-start pt-8 md:col-start-2 md:row-start-1 md:justify-center">
                 <Dot live={item.live} />
               </div>
 
-              {/* Card, sliding in from its side */}
               <motion.div
                 initial={{ opacity: 0, x: isLeft ? -24 : 24 }}
                 whileInView={{ opacity: 1, x: 0 }}
