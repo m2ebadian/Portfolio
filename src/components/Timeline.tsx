@@ -8,6 +8,7 @@ export interface TimelineItem {
   live?: boolean
   label?: string
   content: ReactNode
+  aside?: ReactNode
 }
 
 interface TimelineProps {
@@ -67,6 +68,18 @@ function Timeline({ items, leftHeading, rightHeading }: TimelineProps) {
                 )}
                 {item.content}
               </motion.div>
+
+              {item.aside && (
+                <motion.div
+                  initial={{ opacity: 0, x: isLeft ? 24 : -24 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.7, delay: 0.15, ease }}
+                  className={`col-start-2 mt-6 md:row-start-1 md:mt-0 ${isLeft ? 'md:col-start-3' : 'md:col-start-1'}`}
+                >
+                  {item.aside}
+                </motion.div>
+              )}
             </li>
           )
         })}

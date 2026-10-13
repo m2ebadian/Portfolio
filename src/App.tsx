@@ -4,6 +4,7 @@ import { MotionConfig, useReducedMotion } from 'motion/react'
 
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import Backdrop from './components/fx/Backdrop'
 import ConnectedTimelines from './components/ConnectedTimelines'
 import Hero from './sections/Hero'
 import About from './sections/About'
@@ -22,6 +23,7 @@ function App() {
       {!prefersReducedMotion && <ReactLenis root />}
 
       <Navbar />
+      <Backdrop />
 
       <main id="top">
         <Hero />

@@ -1,19 +1,12 @@
-import { lazy, Suspense, useEffect, useRef, useState } from 'react'
+import { lazy, Suspense, useRef, useState } from 'react'
 import { useReducedMotion } from 'motion/react'
 import Section from '../components/Section'
 import TopicMap from '../components/TopicMap'
+import { supportsWebGL } from '../lib/webgl'
+import { useInViewport } from '../lib/useInViewport'
 
 // three.js is heavy, so the graph gets its own chunk
 const CourseGraph = lazy(() => import('../components/CourseGraph'))
-
-function supportsWebGL() {
-  try {
-    const canvas = document.createElement('canvas')
-    return Boolean(canvas.getContext('webgl2') || canvas.getContext('webgl'))
-  } catch {
-    return false
-  }
-}
 
 function Coursework() {
   const [hoverCode, setHoverCode] = useState<string | null>(null)
@@ -25,16 +18,8 @@ function Coursework() {
   const [touch] = useState(() => window.matchMedia('(pointer: coarse)').matches)
 
   const graphRef = useRef<HTMLDivElement>(null)
-  const [inView, setInView] = useState(false)
-
   // the scene only renders while it's on screen
-  useEffect(() => {
-    const el = graphRef.current
-    if (!el) return
-    const observer = new IntersectionObserver(([entry]) => setInView(entry.isIntersecting), { rootMargin: '100px' })
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [])
+  const inView = useInViewport(graphRef)
 
   const toggleSelect = (code: string) => setSelectedCode((current) => (current === code ? null : code))
 

@@ -5,6 +5,7 @@ import { profile } from '../data/profile'
 import { ease } from '../lib/motion'
 import { useScrollTo } from '../lib/useScrollTo'
 import ThemeToggle from './ThemeToggle'
+import Magnetic from './fx/Magnetic'
 
 const links = [
   { id: 'about', label: 'About' },
@@ -107,14 +108,16 @@ function Navbar() {
             })}
           </ul>
 
-          <a
-            href={profile.resume}
-            download
-            className="mr-2 hidden items-center gap-1.5 rounded-full border border-border bg-surface px-3.5 py-1.5 text-sm font-medium transition-colors hover:border-accent hover:text-accent sm:inline-flex"
-          >
-            <FiDownload aria-hidden />
-            Résumé
-          </a>
+          <Magnetic>
+            <a
+              href={profile.resume}
+              download
+              className="mr-2 hidden items-center gap-1.5 rounded-full border border-border bg-surface px-3.5 py-1.5 text-sm font-medium transition-colors hover:border-accent hover:text-accent sm:inline-flex"
+            >
+              <FiDownload aria-hidden />
+              Résumé
+            </a>
+          </Magnetic>
 
           <ThemeToggle />
 

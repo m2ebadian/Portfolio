@@ -23,6 +23,19 @@ export interface Org {
   preview?: string
 }
 
+export interface Snapshot {
+  src: string
+  thumb: string
+  label: string
+}
+
+export interface Showcase {
+  snapshots: Snapshot[]
+  video?: string
+  booklet?: string
+  bookletPreview: string
+}
+
 export interface Project {
   slug: string
   title: string
@@ -42,4 +55,5 @@ export interface Project {
   tech: string[]
   links?: ProjectLink[]
   orgs?: Org[]
+  showcase?: Showcase
 }

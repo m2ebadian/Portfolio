@@ -1,6 +1,7 @@
 import Section from '../components/Section'
 import ProjectCard from '../components/ProjectCard'
 import CourseProjectCard from '../components/CourseProjectCard'
+import ShowcasePipeline from '../components/ShowcasePipeline'
 import StatusHeading from '../components/StatusHeading'
 import Timeline, { type TimelineItem } from '../components/Timeline'
 import { projects } from '../data/projects'
@@ -15,6 +16,7 @@ const current: TimelineItem[] = projects
     side: i % 2 === 0 ? 'left' : 'right',
     live: true,
     content: <ProjectCard project={p} />,
+    aside: p.showcase && <ShowcasePipeline showcase={p.showcase} />,
   }))
 
 const sideProjects = projects.filter((p) => p.category === 'side')

@@ -40,6 +40,14 @@ export const projects: Project[] = [
       'Benchmarked campaigns against historical performance, market medians, same-brand dealers, and independent competitors to calibrate expectations, identify promotional gaps, and evaluate competitive positioning.',
       'Developed interactive dashboards, geographic market views, and conversational analytics for exploring campaign effectiveness, retention, and dealership performance, backed by .NET APIs, SQL Server, and containerized Azure deployment.',
     ],
+    // add the YouTube link to `video` and the booklet PDF to `booklet` once they're out
+    showcase: {
+      snapshots: [
+        { src: '/showcase/dealer-overview.webp', thumb: '/showcase/dealer-overview-thumb.webp', label: 'Dealer overview' },
+        { src: '/showcase/campaign-analytics.webp', thumb: '/showcase/campaign-analytics-thumb.webp', label: 'Campaign analytics' },
+      ],
+      bookletPreview: '/showcase/booklet-blur.webp',
+    },
     tech: [
       'Angular', 'TypeScript', 'C# / .NET', 'Python', 'Microsoft SQL Server', 'Azure', 'Microsoft AI Foundry',
       'Azure Document Intelligence', 'LangChain', 'LangGraph', 'FastAPI', 'ASP.NET Core', 'Entity Framework Core',

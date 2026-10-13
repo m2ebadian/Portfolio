@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import { motion } from 'motion/react'
 import { stagger, fadeUp } from '../lib/motion'
+import SplitTitle from './fx/SplitTitle'
 
 interface SectionProps {
   id: string
@@ -18,11 +19,11 @@ function Section({ id, index, title, wide = false, children }: SectionProps) {
         variants={stagger}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, margin: '0px 0px -120px 0px' }}
       >
         <motion.div variants={fadeUp} className="mb-10 flex items-baseline gap-4">
           <span className="font-mono text-sm text-accent">{index} /</span>
-          <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">{title}</h2>
+          <SplitTitle text={title} className="text-3xl font-semibold tracking-tight md:text-4xl" />
         </motion.div>
 
         <motion.div variants={fadeUp}>{children}</motion.div>

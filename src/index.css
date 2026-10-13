@@ -4,21 +4,21 @@
 
 :root {
   color-scheme: light;
-  --background: #f8fafc;
+  --background: #f7f8f5;
   --foreground: #0f172a;
   --muted: #475569;
-  --surface: #ffffff;
-  --border: #e2e8f0;
+  --surface: rgb(255 255 255 / 0.72);
+  --border: rgb(15 23 42 / 0.1);
   --accent: #0f766e;
 }
 
 .dark {
   color-scheme: dark;
-  --background: #020617;
+  --background: #04060c;
   --foreground: #f1f5f9;
   --muted: #94a3b8;
-  --surface: #0f172a;
-  --border: #1e293b;
+  --surface: rgb(15 20 35 / 0.66);
+  --border: rgb(148 163 184 / 0.16);
   --accent: #2dd4bf;
 }
 
@@ -38,4 +38,51 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.backdrop-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--foreground) 6%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--foreground) 6%, transparent) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black, transparent 75%);
+}
+
+.sp-packet {
+  animation: sp-flow 3.2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@keyframes sp-flow {
+  0% { top: 0; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+.sp-static::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(0deg, rgb(255 255 255 / 0.04) 0 1px, transparent 1px 3px),
+    radial-gradient(circle at 30% 20%, rgb(45 212 191 / 0.25), transparent 55%),
+    radial-gradient(circle at 80% 90%, rgb(139 92 246 / 0.25), transparent 55%);
+}
+
+.sp-static::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent, rgb(255 255 255 / 0.07), transparent);
+  height: 40%;
+  animation: sp-scan 3.5s linear infinite;
+}
+
+@keyframes sp-scan {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(250%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sp-packet, .sp-static::after { animation: none; }
 }

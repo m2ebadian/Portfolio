@@ -4,6 +4,8 @@ import { FiArrowUpRight, FiCheck, FiCopy } from 'react-icons/fi'
 import Section from '../components/Section'
 import { icons } from '../components/icons'
 import { profile } from '../data/profile'
+import Magnetic from '../components/fx/Magnetic'
+import Mark from '../components/fx/Mark'
 
 const emailLink = profile.links.find((l) => l.url.startsWith('mailto:'))
 const email = emailLink?.url.replace('mailto:', '') ?? ''
@@ -50,21 +52,34 @@ function Contact() {
   return (
     <Section id="contact" index="07" title="Contact">
       <div className="relative max-w-3xl overflow-hidden rounded-2xl border border-border bg-surface p-6 md:p-8">
-        <div aria-hidden className="pointer-events-none absolute -top-24 -right-24 size-56 rounded-full bg-accent/15 blur-3xl" />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -top-24 -right-24 size-56 rounded-full bg-accent/15 blur-3xl"
+        />
 
         <p className="font-mono text-xs uppercase tracking-widest text-accent">Get in touch</p>
-        <h3 className="mt-2 text-2xl font-semibold tracking-tight md:text-3xl">Let's build something useful.</h3>
+        <h3 className="mt-2 text-2xl font-semibold tracking-tight md:text-3xl">
+          Let's build something{' '}
+          <Mark type="circle" delay={300}>
+            useful
+          </Mark>
+          .
+        </h3>
         <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted md:text-base">{profile.contact}</p>
 
         <div className="mt-6 flex flex-wrap items-center gap-3">
-          <a
-            href={emailLink?.url}
-            className="group inline-flex items-center gap-2 rounded-full bg-foreground px-4 py-2.5 text-sm font-medium text-background transition-transform hover:-translate-y-0.5"
-          >
-            {email}
-            <FiArrowUpRight className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </a>
-          <CopyEmailButton />
+          <Magnetic>
+            <a
+              href={emailLink?.url}
+              className="group inline-flex items-center gap-2 rounded-full bg-foreground px-4 py-2.5 text-sm font-medium text-background transition-transform hover:-translate-y-0.5"
+            >
+              {email}
+              <FiArrowUpRight className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
+          </Magnetic>
+          <Magnetic>
+            <CopyEmailButton />
+          </Magnetic>
         </div>
 
         <ul className="mt-6 flex flex-wrap gap-x-8 gap-y-3 border-t border-border pt-5">
