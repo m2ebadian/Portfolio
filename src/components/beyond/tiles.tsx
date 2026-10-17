@@ -274,6 +274,7 @@ export function ClubsTile() {
                 className="h-3 w-auto self-center rounded-[2px] shadow-[0_0_0_1px_rgba(0,0,0,0.12)]"
               />
             )}
+            {club.logo && <img src={club.logo} alt="" className="size-5 self-center rounded-[5px]" />}
           </li>
         ))}
       </ul>

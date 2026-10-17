@@ -16,9 +16,9 @@ export const beyond: Beyond = {
 
   clubs: [
     { name: 'Iranian Student Association', flag: '/beyond/iran-flag.svg' },
-    { name: 'MSU AI Club', url: 'https://www.msuaiclub.com/' },
-    { name: 'Imagine Software at MSU' },
-    { name: 'Ping Pong Club' },
+    { name: 'MSU AI Club', url: 'https://www.msuaiclub.com/', logo: '/beyond/msu-ai-club.webp' },
+    { name: 'Imagine Software at MSU', logo: '/beyond/imagine-software.webp' },
+    { name: 'Ping Pong Club', logo: '/beyond/paddle.svg' },
   ],
 
   music: {

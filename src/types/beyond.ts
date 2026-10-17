@@ -10,6 +10,7 @@ export interface Club {
   name: string
   url?: string
   flag?: string
+  logo?: string
 }
 
 export interface Photo {
