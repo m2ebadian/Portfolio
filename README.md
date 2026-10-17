@@ -39,6 +39,6 @@ Almost everything on the page comes from `src/data/`:
 - **Courses:** `courses.ts`. Courses that share a topic or a prerequisite are connected in the graph.
 - **Tech belt and stack:** `about.ts`. Belt icons live in `public/tech/`.
 - **Beyond the Data:** `beyond.ts`. Food photos live in `public/beyond/`.
-- **Résumé:** drop the PDF at `public/Mehrshad-Bagherebadian-Resume.pdf`.
+- **Resume:** drop the PDF at `public/Mehrshad-Bagherebadian-Resume.pdf`.
 
 Dates are written as `YYYY-MM`; leave out `end` for anything ongoing.

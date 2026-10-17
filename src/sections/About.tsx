@@ -47,7 +47,7 @@ function About() {
             className="group mt-3 flex w-full items-center justify-center gap-2 rounded-xl border border-border bg-surface px-4 py-3 text-sm font-medium transition-colors hover:border-accent hover:text-accent"
           >
             <FiDownload className="transition-transform group-hover:translate-y-0.5" aria-hidden />
-            Download résumé
+            Download resume
           </a>
         </div>
 
