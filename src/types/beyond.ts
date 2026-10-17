@@ -9,6 +9,7 @@ export interface Language {
 export interface Club {
   name: string
   url?: string
+  flag?: string
 }
 
 export interface Photo {

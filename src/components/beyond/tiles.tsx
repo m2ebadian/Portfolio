@@ -13,7 +13,6 @@ const { heritage, languages, clubs, music, movies, fitness, games, sports, food 
 
 export function HeritageTile() {
   const [firstWord, ...rest] = heritage.title.split(' ')
-  const association = clubs.find((c) => c.name.startsWith('Iranian'))
 
   return (
     <Tile color="#239f40" className="bt-iran sm:col-span-2 lg:row-span-2" innerClassName="bt-iran-bg">
@@ -42,12 +41,6 @@ export function HeritageTile() {
       </p>
 
       <PersianMedallion className="mx-auto my-6 size-72 sm:absolute sm:-right-12 sm:-bottom-12 sm:m-0 sm:size-[26rem]" />
-
-      {association && (
-        <p className="bt-chip relative mt-auto w-fit rounded-full px-3 py-1 font-mono text-xs backdrop-blur-sm">
-          {association.name}
-        </p>
-      )}
     </Tile>
   )
 }
@@ -273,6 +266,13 @@ export function ClubsTile() {
               </a>
             ) : (
               <span>{club.name}</span>
+            )}
+            {club.flag && (
+              <img
+                src={club.flag}
+                alt=""
+                className="h-3 w-auto self-center rounded-[2px] shadow-[0_0_0_1px_rgba(0,0,0,0.12)]"
+              />
             )}
           </li>
         ))}
