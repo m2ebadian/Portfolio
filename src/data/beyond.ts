@@ -28,12 +28,12 @@ export const beyond: Beyond = {
   },
 
   movies: {
-    text: 'Every movie I watch ends up on my Letterboxd.',
+    text: 'I log pretty much every movie I watch on Letterboxd.',
     url: 'https://boxd.it/9cozv',
   },
 
   fitness: {
-    text: 'Working out is part of my routine. My lifts live on Liftcard.',
+    text: "I'm in the gym regularly and track my lifts on Liftcard.",
     url: 'https://liftcard.app/b2gz',
   },
 
@@ -52,7 +52,7 @@ export const beyond: Beyond = {
   },
 
   food: {
-    text: "When I'm not at a keyboard, I'm usually cooking or baking something. Tap a photo to see it bigger.",
+    text: "When I'm not at a keyboard, I love to cook or bake something. Tap a photo to see it bigger.",
     photos: [
       { src: '/beyond/birria-tacos.webp', thumb: '/beyond/birria-tacos-thumb.webp', caption: 'Birria tacos with consommé', tag: 'Cooked' },
       { src: '/beyond/cinnamon-rolls.webp', thumb: '/beyond/cinnamon-rolls-thumb.webp', caption: 'Cinnamon rolls', tag: 'Baked' },

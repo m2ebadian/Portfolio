@@ -72,7 +72,6 @@ function PhotoViewer({ photos, index, direction, onStep, onClose }: PhotoViewerP
             <span className="mr-2 rounded-full bg-white/15 px-2 py-0.5 font-mono text-[10px] tracking-wider uppercase">
               {photo.tag}
             </span>
-            {photo.caption}
           </span>
           <span className="font-mono text-xs text-white/60">
             {index + 1} / {photos.length}
@@ -142,9 +141,6 @@ function FoodGallery({ photos }: { photos: Photo[] }) {
                     height={360}
                     className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover/photo:scale-110"
                   />
-                  <span className="absolute inset-x-0 bottom-0 translate-y-full bg-gradient-to-t from-black/80 to-transparent px-2.5 pt-6 pb-2 text-left text-[11px] leading-tight text-white transition-transform duration-300 group-hover/photo:translate-y-0">
-                    {photo.caption}
-                  </span>
                   <span className="absolute top-2 left-2 rounded-full bg-black/55 px-2 py-0.5 font-mono text-[9px] tracking-wider text-white uppercase backdrop-blur-sm">
                     {photo.tag}
                   </span>
