@@ -3,8 +3,8 @@ import type { About } from '../types/about'
 export const about: About = {
   subheading: 'Data science meets full-stack, building systems that make data useful.',
   bio: [
-    "I'm Mehrshad, a computer science student at Michigan State. I like taking messy data and turning it into something useful, and I care about the whole process: understanding how a model actually works, figuring out which patterns hold up, and building the software that gets the results to people.",
-    "I work on both sides of that. Some days I'm testing machine learning methods, and other days I'm building the APIs, dashboards, and apps around them. Working on projects with industry partners taught me that a good model doesn't help much if the system around it doesn't work.",
+    "I'm Mehrshad, a computer science student who likes taking data from messy to meaningful. I'm drawn to the whole journey: understanding how models really work, finding the patterns worth trusting, and building the software that puts those insights in people's hands.",
+    "My work spans both sides, from experimenting with machine learning methods to designing the APIs, dashboards, and full-stack applications around them. Along the way, I've worked on industry-partnered projects and learned that a good model is only as useful as the system built around it.",
   ],
   photo: {
     src: '/headshot.webp',
